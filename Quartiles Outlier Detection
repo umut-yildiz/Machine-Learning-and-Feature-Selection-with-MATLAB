@@ -1,4 +1,4 @@
-%% Quartiles Outlier Detection
+%% Grubbs Outlier Detection
 function [Outlier,Feature,Observation] = GrubbsOutlierDetection(dataset)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Description:
