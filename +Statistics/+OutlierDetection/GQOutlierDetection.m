@@ -20,24 +20,23 @@ function [Outlier,Feature,Observation] = GQOutlierDetection(dataset)
 %           + target variable is not mandatory, if the target variable does
 %           not exist, please remove line 28.
 %
-% Output:!!!!!
-%!!!
-%!
+% Output:
+%       - Feature: It shows how many outliers each feature has
+%       - Observation: It shows how many outliers each observation has
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-[nrow,ncolumn] = size(dataset);
-test = dataset;
-test = reshape(test,1,nrow.*ncolumn);
-test = transpose(test);
-[result] = feat_sel_f.NormalityTest(test); % Normality Test
+[result] = feat_sel_f.NormalityTest(dataset); % Normality Test
 
-if result==1
-    
-    [Outlier,~,~] = feat_sel_f.GrubbsOutlierDetection(dataset); % Grubbs method for normal
-    
-else
-    [Outlier,~,~] = feat_sel_f.QuartilesOutlierDetection(dataset); % Quartiles method 
-    
-end
+% Split features normal and not normal
+[~,Normal] = find(result==1);
+[RG,~,~] = feat_sel_f.GrubbsOutlierDetection(dataset); % Grubbs method for normal
+
+[~,NotNormal] = find(result==0);
+[RQ,~,~] = feat_sel_f.QuartilesOutlierDetection(dataset); % Quartiles method 
+%for not-normal
+
+Outlier = zeros(size(RG));
+Outlier(:,Normal) = RG(:,Normal);
+Outlier(:,NotNormal) = RQ(:,NotNormal);
 
 Feature = sum(Outlier);
 Observation = sum(Outlier,2);
