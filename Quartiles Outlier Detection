@@ -1,0 +1,30 @@
+%% Quartiles Outlier Detection
+function [Outlier,Feature,Observation] = GrubbsOutlierDetection(dataset)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description:
+%       - This function is one of the Outlier Detection Methods.
+%       - Applies Grubbs?s test for outliers, which removes one outlier per
+%       iteration based on hypothesis testing. 
+%       - This method assumes that the data in datset is normally 
+%       distributed.
+%
+% Input:
+%       - dataset: NxM matrix (N:represent samples(observations), 
+%       M:represent features).
+%
+% Output:
+%       - Result: 1x2 cell array. Include two result;
+%           + First array: Which observation include at least 1 outlier.
+%           + Second array: The number of outliers that features have.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+threshold = 0.05; % Default
+[nrow,ncolumn] = size(dataset);
+test = dataset;
+test = reshape(test,1,nrow.*ncolumn); % convert matrix into one vector to
+% evaluate together
+outlierGrubbs = isoutlier(test,'grubbs', 'ThresholdFactor', threshold);
+Outlier = reshape(outlierGrubbs,nrow,ncolumn); % reconvert vector into matrix
+Feature = sum(Outlier);
+Observation = sum(Outlier,2);
+
+end
