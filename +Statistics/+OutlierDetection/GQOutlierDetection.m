@@ -1,4 +1,4 @@
-%% Outlier Detection
+%% GQ Outlier Detection
 function [Outlier,Feature,Observation] = GQOutlierDetection(dataset)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Description:
