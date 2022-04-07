@@ -32,15 +32,7 @@ classdef CEO
             Super = obj.S.Calculator(training);
             Unsuper = obj.US.Calculator(dataset);
             Final = [Super;Unsuper];
-            %MethodMask = [];
-            %for i = 1:size(Final,1)
-            %    for j = i+1:size(Final,1)
-            %        if isequal(Final(i,:),Final(j,:))
-            %            MethodMask(i,:) = 1;
-            %        end
-            %    end
-            %end
-            %Final(MethodMask==1,:) = [];
+
         end
     end
 end
