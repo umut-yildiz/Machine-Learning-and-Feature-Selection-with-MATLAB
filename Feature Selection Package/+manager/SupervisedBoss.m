@@ -1,8 +1,7 @@
 classdef SupervisedBoss
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Explanation:
-%       - This class is include ultimate 6 supervised filter methods and
-%       2 basic data cleaning methods.
+%       - This class is include ultimate 1 supervised filter method
 %
 % Input:
 %       - training: NxM matrix (N:represent samples(observations), 
@@ -16,18 +15,18 @@ classdef SupervisedBoss
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     properties (Access = private)
-        FS3
+        FS1
     end
 
 
     methods
         function obj = SupervisedBoss()
-            obj.FS3 = feat_sel_c.decision.LR_Correlation(); % LR_Corr cleaning
+            obj.FS1 = feat_sel_c.decision.LR_Correlation(); % LR_Corr cleaning
 
         end
         function Manager = Calculator(obj,training)
             % Combine all methods
-            Manager = [obj.FS3.Calculator(training)];
+            Manager = [obj.FS1.Calculator(training)];
 
         end
     end
