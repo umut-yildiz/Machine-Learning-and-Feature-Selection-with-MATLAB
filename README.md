@@ -1,5 +1,5 @@
 # Welcome to My Repository!
-##### Note : For more information or any other ideas please don't hesitate to keep in touch with me!
+##### Note : For more information or any other ideas please feel free to contact me!
 ## `Machine Learning and Data Cleaning with Statistical Tools`
 
 ### Programming Language : MATLAB
