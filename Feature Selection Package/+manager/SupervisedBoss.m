@@ -16,12 +16,7 @@ classdef SupervisedBoss
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     properties (Access = private)
-        FS1
-        FS2
         FS3
-        FS4
-        FS5
-        FS6
     end
 
 
