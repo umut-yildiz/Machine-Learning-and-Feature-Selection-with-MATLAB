@@ -9,7 +9,7 @@ classdef UnsupervisedBoss
 %       M:represent features).
 %
 % Output:
-%       - LogicalMap: 1xM, it shows which feature should be remove
+%       - Manager: 1xM, it shows which feature should be remove
 %       according to this method.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
